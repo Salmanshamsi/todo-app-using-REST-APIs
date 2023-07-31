@@ -140,7 +140,7 @@ const deleteData = (idToDelete) => {
 const updateData = async (idToUpdate, updatedData) => {
   try {
     const response = await fetch(`${baseurl}todo/${idToUpdate}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
