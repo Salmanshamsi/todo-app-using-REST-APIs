@@ -138,6 +138,7 @@ const deleteData = (idToDelete) => {
 
 
 const updateData = async (idToUpdate, updatedData) => {
+  console.log(idToUpdate)
   try {
     const response = await fetch(`${baseurl}todo/${idToUpdate}`, {
       method: 'PUT',
