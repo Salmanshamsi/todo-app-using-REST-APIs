@@ -1,15 +1,6 @@
 const baseurl = "https://dizzy-red-betta.cyclic.app/";
 
 
-function showLoadingSpinner() {
-  document.getElementById('loadingSpinner').style.display = 'block';
-}
-
-// Function to hide the loading spinner
-function hideLoadingSpinner() {
-  document.getElementById('loadingSpinner').style.display = 'none';
-}
-
 
 const getData =  async () => {
 
@@ -72,14 +63,16 @@ const renderData = async () => {
         ${CurEl.data}
       </div>
       <div>
-        <button onclick="deleteData('${CurEl.id}')" class="border-0 bg-transparent" >
+        <button onclick="deleteData('${CurEl._id}')" class="border-0 bg-transparent" >
             <i class="fas fa-times text-primary"></i>    
         </button>
-        <button onclick="modal_handler('${CurEl.id}')"  class="border-0 bg-transparent ms-3" data-toggle='modal' data-target='#updateModal' >
+        <button onclick="modal_handler('${CurEl._id}')"  class="border-0 bg-transparent ms-3" data-toggle='modal' data-target='#updateModal' >
             <i class="fa-solid fa-pen-to-square"></i>     
         </button>
       </div>
     `;
+
+    console.log(CurEl._id)
 
     ul.appendChild(listItem);
   });
@@ -107,7 +100,7 @@ const addData = async () => {
           .then(response => response.text())
           .then(data => {
           
-            if(data === "data added"){
+            if(data === "Data added"){
               location.reload()
             }
             console.log(data)
@@ -188,4 +181,3 @@ function closeModal() {
 
 // Initial rendering
 renderData();
-showLoadingSpinner()
