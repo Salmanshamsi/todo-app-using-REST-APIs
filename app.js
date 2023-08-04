@@ -3,8 +3,6 @@ const baseurl = "https://regal-ceiling-394923.uw.r.appspot.com/";
 
 
 const getData =  async () => {
-
-  let data = [];
  
   try{
 
@@ -101,7 +99,7 @@ const addData = async () => {
           .then(data => {
           
             if(data === "Data added"){
-              location.reload()
+              renderData()
             }
             console.log(data)
           })
@@ -129,7 +127,7 @@ const deleteData = (idToDelete) => {
       if (!response.ok) {
         throw new Error('Network response was not ok.');
       }
-      location.reload()
+      renderData()
       console.log(response.text());
     })
 
@@ -153,7 +151,7 @@ const updateData = async (idToUpdate, updatedData) => {
     }
     const responseData = await response.text();
     console.log(responseData); // Handle the parsed JSON response data
-    location.reload();
+    renderData();
   } catch (error) {
     console.error('Error updating data:', error);
   }
